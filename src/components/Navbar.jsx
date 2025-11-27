@@ -12,7 +12,7 @@ import { IoPersonCircle } from "react-icons/io5";
 
 const Navbar = () => {
     const [open, setOpen] = React.useState(false);
-    const {user,setUser,navigate} = useAppContext();
+    const {user,setUser,navigate,cartItems} = useAppContext();
     const logout = ()=>{
         setUser(null);
         navigate('/')
@@ -41,7 +41,7 @@ const Navbar = () => {
 
                 <div onClick={()=>navigate('/cart')} className="relative cursor-pointer">
                     <FaShoppingCart width="18" height="18"/>
-                    <button className="absolute -top-2 -right-3 text-xs text-white bg-primary w-[18px] h-[18px] rounded-full">3</button>
+                    {cartItems && <button className="absolute -top-2 -right-3 text-xs text-white bg-primary w-[18px] h-[18px] rounded-full">{Object.values(cartItems).reduce((acc, qty) => acc + qty, 0)}</button>}
                 </div>
 
                 {!user ? (<button className="cursor-pointer px-8 py-2 bg-primary hover:bg-primary-dull transition text-white rounded-full">
@@ -79,4 +79,4 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
+export default Navbar;
