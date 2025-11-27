@@ -1,26 +1,33 @@
 const NewsLetter = () => {
     return (
-        <div className='mt-24 pb-14'>
-            <style>{`
-                @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-            
-                * {
-                    font-family: 'Poppins', sans-serif;
-                }
-            `}</style>
+        <div className="mt-20 pb-16 px-4">
+            {/* CONTENT */}
+            <div className="w-full max-w-3xl mx-auto text-center">
+                
+                <p className="text-primary-dull font-medium">Get updated</p>
 
-            <div className="w-full bg-transparent px-2 text-center text-white py-20 flex flex-col items-center justify-center">
-                <p className="text-primary-dullfont-medium">Get updated</p>
-                <h1 className="max-w-lg font-semibold text-4xl/[44px] text-black mt-2">Subscribe to our newsletter & get the latest news</h1>
-                <div className="flex items-center justify-center mt-10 border border-slate-600 focus-within:outline focus-within:outline-indigo-600 text-sm rounded-full h-14 max-w-md w-full">
-                    <input type="text" className="bg-transparent outline-none rounded-full px-4 h-full flex-1 text-gray-500" placeholder="Enter your email address" />
-                    <button className="bg-primary text-white rounded-full h-11 mr-1 px-8 flex items-center justify-center">
+                <h1 className="font-semibold text-2xl sm:text-3xl md:text-4xl text-black mt-2 leading-snug">
+                    Subscribe to our newsletter & get the latest news
+                </h1>
+
+                {/* INPUT BOX */}
+                <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-2 mt-8 w-full justify-center">
+
+                    <input
+                        type="email"
+                        placeholder="Enter your email address"
+                        className="border border-slate-400 focus:border-indigo-600 outline-none px-4 py-3 rounded-full w-full sm:w-80 text-gray-600"
+                    />
+
+                    <button className="bg-primary text-white px-6 py-3 rounded-full w-full sm:w-auto">
                         Subscribe now
                     </button>
+
                 </div>
+
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default NewsLetter
+export default NewsLetter;
