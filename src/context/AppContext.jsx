@@ -7,11 +7,12 @@ export const AppContext = createContext();
 
 export const AppContextProvider = ({ children }) => {
   const currency = '₹';
-  const [user, setUser] = useState(true);
+  const [user, setUser] = useState(false);
   const [isSeller, setIsSeller] = useState(false);
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState({});
+  const [showUserLogin,setShowUserLogin] = useState(false);
 
   //Add to cart items
 
@@ -59,7 +60,7 @@ export const AppContextProvider = ({ children }) => {
 
 
   return (
-    <AppContext.Provider value={{ user, setUser, isSeller, setIsSeller, navigate, products, currency, addToCart, cartItems, removeFromCart, updateCart }}>
+    <AppContext.Provider value={{setShowUserLogin,showUserLogin, user, setUser, isSeller, setIsSeller, navigate, products, currency, addToCart, cartItems, removeFromCart, updateCart }}>
       {children}
     </AppContext.Provider>
   )
