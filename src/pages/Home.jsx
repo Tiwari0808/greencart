@@ -4,6 +4,7 @@ import BestSeller from '../components/BestSeller'
 import BottomBanner from '../components/BottomBanner'
 import NewsLetter from '../components/NewsLetter'
 
+
 const Home = () => {
   return (
     <div className='mt-25 px-3 lg:px-20'>
@@ -12,6 +13,7 @@ const Home = () => {
     <BestSeller/>
     <BottomBanner/>
     <NewsLetter/>
+    
     </div>
   )
 }
