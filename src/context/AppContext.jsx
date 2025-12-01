@@ -6,13 +6,14 @@ import toast from "react-hot-toast";
 export const AppContext = createContext();
 
 export const AppContextProvider = ({ children }) => {
-  const currency = '₹';
+  const currency = import.meta.env.VITE_CURRENCY;
   const [user, setUser] = useState(false);
   const [isSeller, setIsSeller] = useState(false);
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState({});
   const [showUserLogin,setShowUserLogin] = useState(false);
+  const [searchQuery,setSearchQuery] = useState({});
 
   //Add to cart items
 
@@ -60,7 +61,7 @@ export const AppContextProvider = ({ children }) => {
 
 
   return (
-    <AppContext.Provider value={{setShowUserLogin,showUserLogin, user, setUser, isSeller, setIsSeller, navigate, products, currency, addToCart, cartItems, removeFromCart, updateCart }}>
+    <AppContext.Provider value={{searchQuery,setSearchQuery,setShowUserLogin,showUserLogin, user, setUser, isSeller, setIsSeller, navigate, products, currency, addToCart, cartItems, removeFromCart, updateCart }}>
       {children}
     </AppContext.Provider>
   )

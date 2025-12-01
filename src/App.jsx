@@ -6,18 +6,22 @@ import { Toaster } from 'react-hot-toast'
 import Footer from './components/Footer'
 import { useAppContext } from './context/AppContext'
 import Login from './components/Login'
+import AllProducts from './pages/AllProducts'
 
 const App = () => {
-  const{showUserLogin} = useAppContext();
+  const { showUserLogin } = useAppContext();
   return (
     <>
-     <Toaster/>
-      <Navbar/>
-      {showUserLogin && <Login/>}
-      <Routes>
-        <Route path='/' element={<Home/>}/>
-      </Routes>
-      <Footer/>
+      <Toaster />
+      <Navbar />
+      {showUserLogin && <Login />}
+      <div className=''>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/products' element={<AllProducts />} />
+        </Routes>
+      </div>
+      <Footer />
     </>
   )
 }
