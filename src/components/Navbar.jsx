@@ -6,6 +6,7 @@ import { CiSearch } from 'react-icons/ci';
 import { RiMenu3Line } from 'react-icons/ri';
 import { useAppContext } from '../context/AppContext';
 import { IoPersonCircle } from "react-icons/io5";
+import toast from 'react-hot-toast';
 
 
 
@@ -27,8 +28,8 @@ const Navbar = () => {
         <nav className="flex fixed top-0 left-0 w-full items-center justify-between px-6 md:px-16 lg:px-24 xl:px-32 py-4 border-b border-gray-300 bg-white z-50 transition-all">
 
             <NavLink to={'/'}>
-                <img  src={assets.logo} width="157" height="40" viewBox="0 0 157 40" alt='logo' fill="none"
-                 />
+                <img src={assets.logo} width="157" height="40" viewBox="0 0 157 40" alt='logo' fill="none"
+                />
             </NavLink>
 
 
@@ -49,7 +50,7 @@ const Navbar = () => {
                     {cartItems && <button className="absolute -top-2 -right-3 text-xs text-white bg-primary w-[18px] h-[18px] rounded-full">{Object.values(cartItems).reduce((acc, qty) => acc + qty, 0)}</button>}
                 </div>
 
-                {!user ? (<button onClick={() => setShowUserLogin(true)} className="cursor-pointer px-8 py-2 bg-primary hover:bg-primary-dull transition text-white rounded-full">
+                {!user ? (<button onClick={() => {setShowUserLogin(true)}} className="cursor-pointer px-8 py-2 bg-primary hover:bg-primary-dull transition text-white rounded-full">
                     Login
                 </button>) : (
                     <div className='relative group'>
@@ -73,9 +74,9 @@ const Navbar = () => {
                 <NavLink to={'/products'} className="block" onClick={() => setOpen(false)}>All Products</NavLink>
                 {user && <NavLink to={'/'} className="block" onClick={() => setOpen(false)}>My orders</NavLink>}
                 <NavLink to={'/'} className="block" onClick={() => setOpen(false)}>Contact</NavLink>
-                {!user ? (<button onClick={() => setShowUserLogin(true)} className="cursor-pointer px-6 py-2 mt-2 bg-primary hover:bg-primary-dull transition text-white rounded-full text-sm">
+                {!user ? (<button onClick={() => {setShowUserLogin(true),setOpen(false)}} className="cursor-pointer px-6 py-2 mt-2 bg-primary hover:bg-primary-dull transition text-white rounded-full text-sm">
                     Login
-                </button>) : (<button className="cursor-pointer px-6 py-2 mt-2 bg-primary hover:bg-primary-dull transition text-white rounded-full text-sm">
+                </button>) : (<button onClick={() => { logout(), setOpen(false), toast.success('Logged out') }} className="cursor-pointer px-6 py-2 mt-2 bg-primary hover:bg-primary-dull transition text-white rounded-full text-sm">
                     Logout
                 </button>)}
             </div>

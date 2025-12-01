@@ -1,5 +1,6 @@
 import React from "react";
 import { useAppContext } from "../context/AppContext";
+import toast from "react-hot-toast";
 
 const Login = () => {
     const [state, setState] = React.useState("login");
@@ -18,7 +19,8 @@ const Login = () => {
             email: "test@greencart.com",
             password: "123456",
         })
-        setShowUserLogin(false)
+        setShowUserLogin(false);
+        toast.success('Logged in')
     };
 
     const handleChange = (e) => {
